@@ -1,0 +1,2 @@
+#define DEFAULT_LOGIN_USERNAME "User"
+#define DEFUALT_LOGIN_PASSWORD "password"

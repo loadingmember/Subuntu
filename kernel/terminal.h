@@ -1,0 +1,2 @@
+#define STEVEOS_USERNAME_DEFAULT "admin"
+#define STEVEOS_PASSWORD_DEFAULT "password"
