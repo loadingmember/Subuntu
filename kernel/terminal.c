@@ -402,7 +402,7 @@ void install_chrome() {
 
 void install_android_studio() {
 	
-	printf("Packages Found :::: ANDROID-STUDIO\N");
+	printf("Packages Found :::: ANDROID-STUDIO\n");
 
 	printf("Please enter your password: \n");
 	scanf("%s", password);
@@ -425,7 +425,21 @@ void install_android_studio() {
 
 void install_vmtools() {
 	
-	printf("
+	printf("Packages Found :::: VMTOOLS\n");
+
+	printf("Getting Packages\n");
+	sleep(2);
+	printf("Unpacking Packages\n");
+	sleep(4);
+	printf("Getting & Applying Resulution Effects\n");
+	sleep(5);
+	printf("VMTOOLS Now Installed. NOTE: RESTART VMWARE TO LET THE EFFECTS APPLY\n");
+
+}
+
+void install_vscode() {
+
+	printf("Packages Found :::: VSCODE\n");
 
 }
 
