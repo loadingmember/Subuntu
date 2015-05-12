@@ -437,9 +437,30 @@ void install_vmtools() {
 
 }
 
-void install_vscode() {
+void install_gitcore() {
 
-	printf("Packages Found :::: VSCODE\n");
+	char *github_username = (char *) malloc(sizeof(github_username));
+	char *github_password = (char *) malloc(sizeof(github_password));
+
+	printf("Packages Found :::: GITCORE\n");
+
+	printf("Getting Packages...\n");
+	sleep(2);
+	printf("Unpacking Packages...\n");
+	sleep(4);
+	printf("Getting & Applying Console Commands...\n");
+	sleep(3);
+	printf("Enter your GitHub Username: ");
+	scanf("%s", github_username);
+	printf("Enter your GitHub Password: ");
+	struct termios term, term_orig;
+	tcgetattr(STDIN_FILENO, &term);
+	term_orig = term;
+	term.c_lflag &= ~ECHO;
+	tcsetattr(STDIN_FILENO, TCSANOW, &term);
+	scanf("%s", github_password);
+
+	printf("Git Core now Installed and Profile now setup with a username of %s", github_username);
 
 }
 
@@ -484,7 +505,7 @@ int main() {
 	} else if(strcmp(command, "spack install cython") == 0) {
 		install_cython();
 	} else if(strcmp(command, "cd ~/code") == 0 || strcmp(command, "cd code/") == 0) {
-		cdCode();
+		cd_code();
 	} else if(strcmp(command, "pwrd -change") == 0) {
 		printf("Please Enter new Password: ");
 		scanf("%s", new_password);
@@ -511,5 +532,7 @@ int main() {
 		install_android_studio();
 	} else if(strcmp(command, "spack install vmtools") == 0) {
 		install_vmtools();
-	}
+	} else if(strcmp(command, "spack install gitcore") == 0) {
+		install_gitcore();
+	} 
 }

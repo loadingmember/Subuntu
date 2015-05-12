@@ -208,6 +208,31 @@ void log_out() {
 	}
 }
 
+void change_password() {
+	
+	printf("Please enter the username: ");
+	scanf("%s", login_username);
+
+	if(strcmp(login_username, "Steven Zaluk") == 0 || strcmp(login_username, "stevenzaluk") == 0 || strcmp(login_username, "default") == 0 || strcmp(login_username, "Default")) {
+		char *old_login_password = (char *) malloc(sizeof(old_login_password));
+		printf("Enter your old password: ");
+		scanf("%s", old_login_password);
+		if(strcmp(old_login_password, login_password) == 0) {
+			char *new_login_password = (char *) malloc(sizeof(new_login_password));
+			printf("Enter your new password: ");
+			scanf("%s", new_login_password);
+			printf("Password Changed\n");
+		} else {
+			printf("Passwords Donot Match!!!\n");
+		}
+	} else {
+		printf("Not a Valid User\n");
+		printf("Please enter the username: ");
+		scanf("%s", login_username);
+	}
+	
+}
+
 int main() {
 
 	char *installationChoice = (char *) malloc(sizeof(installationChoice));
@@ -218,7 +243,8 @@ int main() {
 	printf("### 1. Unlock System ###\n");
 	printf("### 2. Add New User ###\n");
 	printf("### 3. Delete User ###\n");
-	printf("### 4. Cancel ###\n");
+	printf("### 4. Change Password ###\n");
+	printf("### 5. Exit ###\n");
 	
 	printf("Please enter your choice: ");
 	scanf("%d", &choice);
@@ -230,6 +256,8 @@ int main() {
 	} else if(choice == 3) {
 		delete_user();
 	} else if(choice == 4) {
+		change_password();
+	} else if(choice == 5) {
 		exit(0);
 	} else {
 		printf("Invalid Option!\n");
